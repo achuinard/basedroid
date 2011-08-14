@@ -1,0 +1,1 @@
+This is a project, released under the BSD license, which serves as a clean base for most Android boilerplate code.  It uses Roboguice for dependency injection.  This project includes a singleton HTTP client class which can be reused throughout activities for network calls.

@@ -6,8 +6,8 @@ import roboguice.application.RoboApplication;
 import java.util.List;
 
 public class BasedroidApplication extends RoboApplication {
-    @Override
-    protected void addApplicationModules(List<Module> modules) {
-        modules.add(new BasedroidGuiceModule());
-    }
+  @Override
+  protected void addApplicationModules(List<Module> modules) {
+    modules.add(new BasedroidGuiceModule());
+  }
 }

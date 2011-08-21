@@ -19,6 +19,13 @@ import org.apache.http.params.HttpProtocolParams;
 public class HttpConnectionManager {
   private static HttpClient INSTANCE;
 
+  /**
+   * Static method to initialize Http client.  Notice the double instance == null check.
+   * By checking in and outside of the synchronization, this method is threadsafe.
+   * It ensures the singleton is only instantiated once.
+   *
+   * @return
+   */
   public static HttpClient getInstance() {
     if (INSTANCE == null) {
       synchronized (HttpConnectionManager.class) {
@@ -29,14 +36,14 @@ public class HttpConnectionManager {
 
           HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
           HttpProtocolParams.setContentCharset(params, "utf-8");
-          HttpProtocolParams.setUserAgent(params, "App Kingdoms Android");
+          HttpProtocolParams.setUserAgent(params, "Basedroid");
 
           sslSocketFactory.setHostnameVerifier(SSLSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
 
           registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
           registry.register(new Scheme("https", sslSocketFactory, 443));
 
-          ClientConnectionManager manager = new ThreadSafeClientConnManager(params, registry);
+          final ClientConnectionManager manager = new ThreadSafeClientConnManager(params, registry);
           INSTANCE = new DefaultHttpClient(manager, params);
         }
       }

@@ -1,3 +1,9 @@
+BASEDROID - A Starting Framework for Android Internet-based Apps
+---------
+What is Basedroid for?
+Basedroid exists to eliminate alot of the Android boilerplate that I've found myself recreating every time I create an Http-based Android app.  It also comes with Roboguice configured (the RoboApplication subclass, libs, etc).
+
+
 GETTING STARTED WITH BASEDROID
 ------------------------------
 

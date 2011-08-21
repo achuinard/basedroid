@@ -1,4 +1,4 @@
-package com.princhu;
+package com.twansoftware.basedroid;
 
 import org.apache.http.HttpVersion;
 import org.apache.http.client.HttpClient;

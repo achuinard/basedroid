@@ -1,12 +1,12 @@
-package com.princhu;
+package com.twansoftware.basedroid;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import com.google.inject.Inject;
+import com.twansoftware.R;
 import roboguice.activity.RoboActivity;
-import roboguice.util.Ln;
 
 public class MainActivity extends RoboActivity
 {

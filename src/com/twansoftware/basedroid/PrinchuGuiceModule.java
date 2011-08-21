@@ -1,4 +1,4 @@
-package com.princhu;
+package com.twansoftware.basedroid;
 
 import android.content.Context;
 import android.content.SharedPreferences;

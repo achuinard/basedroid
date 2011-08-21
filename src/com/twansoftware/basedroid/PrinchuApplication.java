@@ -1,10 +1,9 @@
-package com.princhu;
+package com.twansoftware.basedroid;
 
 import android.content.SharedPreferences;
 import android.os.Binder;
 import android.os.Bundle;
 import com.google.inject.Module;
-import roboguice.activity.RoboActivity;
 import roboguice.application.RoboApplication;
 
 import java.util.List;

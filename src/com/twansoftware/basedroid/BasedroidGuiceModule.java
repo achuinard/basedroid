@@ -1,13 +1,10 @@
 package com.twansoftware.basedroid;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.telephony.TelephonyManager;
 import roboguice.config.AbstractAndroidModule;
 
-public class PrinchuGuiceModule extends AbstractAndroidModule {
+public class BasedroidGuiceModule extends AbstractAndroidModule {
 
-    public PrinchuGuiceModule() {
+    public BasedroidGuiceModule() {
     }
 
     @Override

@@ -17,27 +17,31 @@ import org.apache.http.params.HttpProtocolParams;
  * achuinard
  */
 public class HttpConnectionManager {
-    private static HttpClient INSTANCE;
+  private static HttpClient INSTANCE;
 
-    public static HttpClient getInstance() {
+  public static HttpClient getInstance() {
+    if (INSTANCE == null) {
+      synchronized (HttpConnectionManager.class) {
         if (INSTANCE == null) {
-            final HttpParams params = new BasicHttpParams();
-            final SchemeRegistry registry = new SchemeRegistry();
-            final SSLSocketFactory sslSocketFactory = SSLSocketFactory.getSocketFactory();
+          final HttpParams params = new BasicHttpParams();
+          final SchemeRegistry registry = new SchemeRegistry();
+          final SSLSocketFactory sslSocketFactory = SSLSocketFactory.getSocketFactory();
 
-            HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
-            HttpProtocolParams.setContentCharset(params, "utf-8");
-            HttpProtocolParams.setUserAgent(params, "App Kingdoms Android");
+          HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+          HttpProtocolParams.setContentCharset(params, "utf-8");
+          HttpProtocolParams.setUserAgent(params, "App Kingdoms Android");
 
-            sslSocketFactory.setHostnameVerifier(SSLSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
+          sslSocketFactory.setHostnameVerifier(SSLSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
 
-            registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
-            registry.register(new Scheme("https", sslSocketFactory, 443));
+          registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+          registry.register(new Scheme("https", sslSocketFactory, 443));
 
-            ClientConnectionManager manager = new ThreadSafeClientConnManager(params, registry);
-            INSTANCE = new DefaultHttpClient(manager, params);
+          ClientConnectionManager manager = new ThreadSafeClientConnManager(params, registry);
+          INSTANCE = new DefaultHttpClient(manager, params);
         }
-
-        return INSTANCE;
+      }
     }
+
+    return INSTANCE;
+  }
 }

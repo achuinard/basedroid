@@ -21,15 +21,15 @@ import java.util.List;
 import java.util.Map;
 
 @Singleton
-public class PrinchuClient {
+public class BasedroidHttpClient {
     private static HttpClient httpClient = HttpConnectionManager.getInstance();
 
     private SharedPreferences sharedPreferences;
 
     @Inject
-    public PrinchuClient(SharedPreferences sharedPreferences) {
+    public BasedroidHttpClient(SharedPreferences sharedPreferences) {
         this.sharedPreferences = sharedPreferences;
-        Log.d("TAG", "Spinning up PrinchuClient");
+        Log.d("TAG", "Spinning up BasedroidHttpClient");
         Log.d("TAG", String.valueOf(sharedPreferences.getBoolean("test", false)));
     }
 

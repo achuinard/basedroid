@@ -13,7 +13,7 @@ public class UnregisteredUserActivity extends RoboActivity {
     private SharedPreferences sharedPreferences;
 
     @Inject
-    private PrinchuClient client;
+    private BasedroidHttpClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,1 +1,6 @@
-This is a project, released under the BSD license, which serves as a clean base for most Android boilerplate code.  It uses Roboguice for dependency injection.  This project includes a singleton HTTP client class which can be reused throughout activities for network calls.
+GETTING STARTED WITH BASEDROID
+------------------------------
+
+1) Checkout
+2) Create a local.properties file
+3) Put 'sdk.dir=/my/sdk/dir' in your local.properties file

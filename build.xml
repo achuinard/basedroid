@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="App_Kingdoms" default="help">
+<project name="Basedroid" default="help">
 
-<!-- The local.properties file is created and updated by the 'android'
+<!-- You should have a local.properties file containg an sdk.dir key / value. i.e.
+     sdk.dir=/home/username/code/android-sdk 
      tool.
-     It contains the path to the SDK. It should *NOT* be checked into
+     It should *NOT* be checked into
      Version Control Systems. -->
     <property file="local.properties" />
 

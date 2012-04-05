@@ -22,7 +22,6 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import roboguice.util.Ln;
 
@@ -39,9 +38,9 @@ public class BasedroidHttpClient {
     private SharedPreferences sharedPreferences;
 
     @Inject
-    public BasedroidHttpClient(SharedPreferences sharedPreferences) {
+    public BasedroidHttpClient(final SharedPreferences sharedPreferences) {
         this.sharedPreferences = sharedPreferences;
-        Ln.d("Constructing BasedroidHttpClient");
+        Ln.d("Constructing BasedroidHttpClient...");
     }
 
     /**
@@ -55,7 +54,7 @@ public class BasedroidHttpClient {
         final Map<String, String> requestParams = new HashMap<String, String>();
         requestParams.put("username", "achuinard");
         try {
-            JSONObject jo = fetchJsonObject(url, requestParams, RequestType.GET);
+            final JSONObject jo = fetchJsonObject(url, requestParams, RequestType.GET);
             return jo.getLong("userId");
         } catch (Exception e) {
             Ln.w(e);
@@ -67,17 +66,24 @@ public class BasedroidHttpClient {
         GET, POST
     }
 
-    private JSONObject fetchJsonObject(String url, Map<String, String> requestParams, RequestType requestType) throws Exception {
+    private JSONObject fetchJsonObject(final String url,
+                                       final Map<String, String> requestParams,
+                                       final RequestType requestType) throws Exception {
         return new JSONObject(fetchStringData(url, requestParams, requestType));
     }
 
-    private JSONArray fetchJsonArray(String url, Map<String, String> requestParams, RequestType requestType) throws IOException, JSONException {
+    private JSONArray fetchJsonArray(final String url,
+                                     final Map<String, String> requestParams,
+                                     final RequestType requestType) throws Exception {
         return new JSONArray(fetchStringData(url, requestParams, requestType));
     }
 
-    private String fetchStringData(String url, Map<String, String> requestParams, RequestType requestType) throws IOException {
+    private String fetchStringData(final String url,
+                                   final Map<String, String> requestParams,
+                                   final RequestType requestType) throws IOException {
+        Ln.d("Making %s request to %s.", requestType, url);
         if (requestType == RequestType.GET) {
-            StringBuilder realUrl = new StringBuilder();
+            final StringBuilder realUrl = new StringBuilder();
             realUrl.append(url);
             if (!requestParams.isEmpty()) {
                 realUrl.append("?");
@@ -87,32 +93,25 @@ public class BasedroidHttpClient {
                     realUrl.append(URLEncoder.encode(requestParams.get(key), "UTF-8"));
                 }
             }
-
-            Ln.d("Making GET request to %s.", realUrl.toString());
             return httpClient.execute(new HttpGet(realUrl.toString()), new BasicResponseHandler());
         } else if (requestType == RequestType.POST) {
-            HttpPost httpPost = new HttpPost(url);
-            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            final HttpPost httpPost = new HttpPost(url);
+            final List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
             for (String key : requestParams.keySet()) {
                 nameValuePairs.add(new BasicNameValuePair(key, requestParams.get(key)));
             }
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-            Ln.d("Making POST request to %s.", url);
             return httpClient.execute(httpPost, new BasicResponseHandler());
         } else {
             throw new IllegalStateException("Invalid HTTP request type.");
         }
     }
 
-    /**
-     * achuinard
-     */
     public static class HttpConnectionManager {
-        private static HttpClient INSTANCE;
+        private static volatile HttpClient INSTANCE;
 
         /**
-         * Static method to initialize Http client.  Notice the double instance == null check.
+         * Static method to initialize HTTP client.  Notice the double instance == null check.
          * By checking in and outside of the synchronization, this method is threadsafe.
          * It ensures the singleton is only instantiated once.
          *
@@ -140,7 +139,6 @@ public class BasedroidHttpClient {
                     }
                 }
             }
-
             return INSTANCE;
         }
     }

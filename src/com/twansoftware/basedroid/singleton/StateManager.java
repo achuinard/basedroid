@@ -1,6 +1,9 @@
 package com.twansoftware.basedroid.singleton;
 
+import android.content.SharedPreferences;
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import roboguice.util.Ln;
 
 /**
  * Author: achuinard
@@ -8,5 +11,11 @@ import com.google.inject.Singleton;
  */
 @Singleton
 public class StateManager {
-    // todo implement...
+    private SharedPreferences sharedPreferences;
+
+    @Inject
+    public StateManager(final SharedPreferences sharedPreferences) {
+        this.sharedPreferences = sharedPreferences;
+        Ln.d("Constructing StateManager...");
+    }
 }

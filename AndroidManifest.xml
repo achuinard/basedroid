@@ -5,7 +5,7 @@
           android:versionName="1.0">
   <uses-permission android:name="android.permission.INTERNET"/>
   <application android:label="@string/app_name" android:icon="@drawable/icon"
-               android:name=".BasedroidApplication">
+               android:name=".basedroid.BasedroidApplication">
     <activity android:name=".MainActivity"
               android:label="@string/app_name">
       <intent-filter>

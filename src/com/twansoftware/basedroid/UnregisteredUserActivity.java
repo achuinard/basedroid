@@ -2,8 +2,8 @@ package com.twansoftware.basedroid;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.TextView;
 import com.google.inject.Inject;
+import com.twansoftware.basedroid.singleton.BasedroidHttpClient;
 import roboguice.activity.RoboActivity;
 import roboguice.util.Ln;
 
@@ -18,10 +18,7 @@ public class UnregisteredUserActivity extends RoboActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    TextView view = new TextView(this);
-    view.setText(String.valueOf(sharedPreferences.getBoolean("test", false)));
-
-    setContentView(view);
+    setContentView(R.layout.main);
 
     Ln.v("Sample GET: %s", client.exampleJsonSearch());
   }

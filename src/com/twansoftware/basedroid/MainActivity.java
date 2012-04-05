@@ -17,11 +17,6 @@ public class MainActivity extends RoboActivity {
   public void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
-
-    // testing shared prefs
-    final SharedPreferences.Editor editor = sharedPreferences.edit();
-    editor.putBoolean("test", true);
-    editor.commit();
     startActivity(new Intent(this, UnregisteredUserActivity.class));
   }
 }

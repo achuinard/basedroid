@@ -1,4 +1,4 @@
-package com.twansoftware.basedroid;
+package com.twansoftware.basedroid.basedroid;
 
 import roboguice.config.AbstractAndroidModule;
 

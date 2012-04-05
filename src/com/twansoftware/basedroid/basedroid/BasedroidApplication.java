@@ -1,4 +1,4 @@
-package com.twansoftware.basedroid;
+package com.twansoftware.basedroid.basedroid;
 
 import com.google.inject.Module;
 import roboguice.application.RoboApplication;

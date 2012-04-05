@@ -1,12 +1,6 @@
-BASEDROID - A Starting Framework for Android Internet-based Apps
----------
-What is Basedroid for?
-Basedroid exists to eliminate alot of the Android boilerplate that I've found myself recreating every time I create an Http-based Android app.  It also comes with Roboguice configured (the RoboApplication subclass, libs, etc).
-
-
-GETTING STARTED WITH BASEDROID
+Getting Started
 ------------------------------
-
-1) Checkout
-2) Create a local.properties file
-3) Put 'sdk.dir=/my/sdk/dir' in your local.properties file
+1) The Android SDK and Apache Ant, a popular Java build tool, are required.
+2) Use the local.properties.example file to create your own local.properties file.
+3) You can list all available Ant tasks through the command 'ant -projecthelp -verbose'.
+4) Usually I will create an IntelliJ IDEA project over this,  using the 'existing sources' option when creating the project in IDEA.

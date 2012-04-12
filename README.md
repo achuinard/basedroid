@@ -1,11 +1,3 @@
-:Getting Started
-------------------------------
-1) The Android SDK and Maven 
-2) Use the local.properties.example file to create your own local.properties file.
-3) The app is built on Android API 2.2.
-4) You can list all available Ant tasks through the command 'ant -projecthelp -verbose'.
-5) I will create an IntelliJ IDEA project over this,  using the 'existing sources' option when creating the project in IDEA.
-
 Basedroid: A Template for New Android Apps 
 ======================
 

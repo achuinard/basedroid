@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <version>1.4-SNAPSHOT</version>
+    <groupId>com.twansoftware</groupId>
+    <artifactId>basedroid-parent</artifactId>
+    <name>Basedroid parent</name>
+    <packaging>pom</packaging>
+
+    <issueManagement>
+        <url>https://github.com/achuinard/basedroid/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>Apache License Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/achuinard/basedroid</url>
+        <connection>scm:git:git://github.com/achuinard/basedroid.git</connection>
+        <developerConnection>scm:git:git@github.com:achuinard/basedroid.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <email>tony.chuinard@gmail.com</email>
+            <name>Tony Chuinard</name>
+            <url>https://github.com/achuinard</url>
+            <id>achuinard</id>
+        </developer>
+    </developers>
+
+    <modules>
+        <module>app</module>
+        <module>integration-tests</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <android.version>4.0.1.2</android.version>
+        <android.proguard.jvmArguments>-Xms256m</android.proguard.jvmArguments>
+    </properties>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.madgag</groupId>
+                    <artifactId>android-maven-plugin</artifactId>
+                    <version>3.1.1.99.0.6</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <sdk>
+                            <platform>15</platform>
+                        </sdk>
+                        <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                        <proguard>
+                            <skip>true</skip>
+                            <config>../proguard.cfg</config>
+                        </proguard>
+                        <manifest>
+                            <versionName/>
+                            <!-- defaults to Maven project version -->
+                            <versionCodeUpdateFromVersion>true</versionCodeUpdateFromVersion>
+                            <debuggable>true</debuggable>
+                        </manifest>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>manifestUpdate</id>
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>manifest-update</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

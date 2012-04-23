@@ -11,7 +11,7 @@ import java.util.Map;
  * Author: achuinard
  * 4/23/12
  */
-public class RoboSherlockScopedActivity extends RoboSherlockActivity implements RoboContext{
+public class RoboSherlockScopedActivity extends RoboSherlockActivity implements RoboContext {
     protected Map<Key<?>, Object> scopedObjects = new HashMap<Key<?>, Object>();
 
     @Override

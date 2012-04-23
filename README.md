@@ -28,12 +28,11 @@ It comes packed with several frameworks and features that make Android developme
 Configuring Basedroid
 ------------
 
-  You must have a PATH variable ANDROID_HOME set to your Android SDK directory.  Basedroid is built on API 14 but is compatible with as low
-    as Android 2.2.
-
-  * [Linux][]
+  You must have a PATH variable $ANDROID_HOME set to your Android SDK directory.  
+  Basedroid is built on API 14 but is compatible with as low as Android 2.2.
 
         export ANDROID_HOME=/my/sdk/path
+        git clone git://github.com/achuinard/basedroid.git
 
 Building from source
 --------------------

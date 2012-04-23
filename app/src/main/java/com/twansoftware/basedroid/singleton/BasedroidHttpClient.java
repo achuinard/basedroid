@@ -1,7 +1,5 @@
 package com.twansoftware.basedroid.singleton;
 
-import android.content.SharedPreferences;
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import org.apache.http.HttpVersion;
 import org.apache.http.NameValuePair;
@@ -34,32 +32,34 @@ import java.util.Map;
 
 @Singleton
 public class BasedroidHttpClient {
-    private static HttpClient httpClient = HttpConnectionManager.getInstance();
-    private SharedPreferences sharedPreferences;
+    private HttpClient httpClient;
 
-    @Inject
-    public BasedroidHttpClient(final SharedPreferences sharedPreferences) {
-        this.sharedPreferences = sharedPreferences;
+    public BasedroidHttpClient() {
         Ln.d("Constructing BasedroidHttpClient...");
+        httpClient = new HttpConnectionManager().getInstance();
     }
 
     /**
-     * this is an example of an API call that returns a 'long'.  say my activity wants to find this long value.
-     * client method returns exactly what we need.
-     *
-     * @return the userId associated with the search-for username
+     * This is an example API call.  Say I have an app - when a user registers you may want to check
+     * if the username exists before sending the registration call through (because the registration
+     * call will fail).  This fetches and parses the server-defined JSON object into a boolean value.
      */
-    public long exampleJsonSearch() {
-        final String url = "http://www.speakbin.com/api/json/interaction/searchidbyusername.sb?username=tony";
+    public boolean speakbinUserExists(final String username) {
+        final String url = "http://www.speakbin.com/api/json/interaction/checkuser.sb";
         final Map<String, String> requestParams = new HashMap<String, String>();
-        requestParams.put("username", "achuinard");
+        requestParams.put("username", username);
         try {
             final JSONObject jo = fetchJsonObject(url, requestParams, RequestType.GET);
-            return jo.getLong("userId");
+            return Boolean.parseBoolean(jo.getString("bool"));
         } catch (Exception e) {
+            System.out.println(e);
             Ln.w(e);
         }
-        return 0;
+        return false;
+    }
+
+    public HttpClient getHttpClient() {
+        return httpClient;
     }
 
     private enum RequestType {
@@ -107,8 +107,8 @@ public class BasedroidHttpClient {
         }
     }
 
-    public static class HttpConnectionManager {
-        private static volatile HttpClient INSTANCE;
+    public class HttpConnectionManager {
+        private volatile HttpClient INSTANCE;
 
         /**
          * Static method to initialize HTTP client.  Notice the double instance == null check.
@@ -117,7 +117,7 @@ public class BasedroidHttpClient {
          *
          * @return
          */
-        public static HttpClient getInstance() {
+        public HttpClient getInstance() {
             if (INSTANCE == null) {
                 synchronized (HttpConnectionManager.class) {
                     if (INSTANCE == null) {

@@ -3,11 +3,12 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-    >
-  <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Hello World, MainActivity"
-      />
+        >
+    <Button
+            android:id="@+id/main_list_view_example_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_list_view_example_button_text"
+            />
 </LinearLayout>
 

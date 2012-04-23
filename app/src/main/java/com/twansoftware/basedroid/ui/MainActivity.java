@@ -5,13 +5,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockActivity;
 import com.google.inject.Inject;
 import com.twansoftware.basedroid.R;
+import com.twansoftware.basedroid.activity.RoboSherlockScopedActivity;
 import com.twansoftware.basedroid.ui.examples.ListActivityExample;
 import roboguice.inject.InjectView;
 
-public class MainActivity extends RoboSherlockActivity implements View.OnClickListener {
+public class MainActivity extends RoboSherlockScopedActivity implements View.OnClickListener {
     @Inject
     private SharedPreferences sharedPreferences;
 

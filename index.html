@@ -1,0 +1,98 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Basedroid</title>
+  <meta name="description" content="Framework for New JSON-based Android Apps">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Basedroid</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Framework for New JSON-based Android Apps</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/achuinard/basedroid/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/achuinard/basedroid/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/achuinard/basedroid" class="code">fork Basedroid on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h3>About</h3>
+
+<p>I've found that whenever I want to make an Android app that interacts with some API over JSON, I was rewriting the same boilerplate code every time.  There were also some other pieces of Android boilerplate, such as action bars and state managers, for which I wanted to create a reusable base.  The project also aims to keep Android permissions to a bare minimum - currently it only uses the network request permission.</p>
+
+<p>This is Basedroid.</p>
+
+<pre><code>$ git clone git://github.com/achuinard/basedroid.git
+$ cd basedroid
+$ cat README
+$ ant clean debug
+</code></pre>
+
+<h3>Roboguice</h3>
+
+<p>Basedroid includes <a href="http://code.google.com/p/roboguice/">roboguice</a>, a dependency injection framework used by popular apps such as Facebook Messenger and Google Docs.</p>
+
+<h3>BasedroidHttpClient</h3>
+
+<p>A singleton HTTP client, wrapped around Apache HttpClient, which provides a simple method to make GET / POST requests.  Examples of deserializing JSON into POJOs (plain old Java objects) are included.</p>
+
+<h3>StateManager</h3>
+
+<p>Another singleton which allows you to store basic key-value pairs.  I have found that the use of SQLite is unnecessary in apps that I have developed.  The StateManager is wrapped around the Android SharedPreferences class and includes some magic that serializes data into JSON before saving it.</p>
+
+<h3>Action Bar</h3>
+
+<p>Basedroid includes a reusable action bar, a UI pattern now recommended by Google for all Android apps.  You can use the action bar to eliminate the need for the menu button.</p>
+
+<h3>Examples</h3>
+
+<p>You will find several examples inside Basedroid - ListViews, asynchronous HTTP requests, state management, and more.</p>
+
+<h3>Authors and License</h3>
+
+<p>Basedroid was developed by Tony Chuinard (<a href="https://github.com/achuinard" class="user-mention">@achuinard</a>). It is released under the MIT license.  Pull requests are welcome!</p>
+
+<h3>Support or Contact</h3>
+
+<p>You can reach me on <a href="http://twitter.com/chuinard">Twitter</a>.</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/achuinard" class="avatar"><img src="https://secure.gravatar.com/avatar/383af252067cdb68138c551c92f2ea21?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png" width="48" height="48"/></a> <a href="https://github.com/achuinard">achuinard</a> maintains <a href="https://github.com/achuinard/basedroid">Basedroid</a></p>
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/achuinard/basedroid/tarball/master" class="tar">tar</a><a href="https://github.com/achuinard/basedroid/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>

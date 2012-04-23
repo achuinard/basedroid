@@ -11,8 +11,7 @@ import roboguice.RoboGuice;
 import roboguice.activity.RoboActivity;
 import roboguice.test.RobolectricRoboTestRunner;
 
-import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.*;
 
 /**
  * Author: achuinard
@@ -43,7 +42,33 @@ public class BasedroidHttpClientTest {
             }
         });
 
-        final boolean usernameExists = client.speakbinUserExists("achuinard");
+        final Boolean usernameExists = client.speakbinUserExists("achuinard");
         assertTrue(usernameExists);
+    }
+
+    @Test
+    public void testCheckUsernameNonexistence() {
+        Robolectric.addPendingHttpResponse(new HttpResponseGenerator() {
+            @Override
+            public HttpResponse getResponse(final HttpRequest httpRequest) {
+                return new TestHttpResponse(200, "{'bool':'false'}");
+            }
+        });
+
+        final Boolean usernameExists = client.speakbinUserExists("slkdalskjkfd");
+        assertFalse(usernameExists);
+    }
+
+    @Test
+    public void testMalformedHttpResponse() {
+        Robolectric.addPendingHttpResponse(new HttpResponseGenerator() {
+            @Override
+            public HttpResponse getResponse(final HttpRequest httpRequest) {
+                return new TestHttpResponse(200, "{THIS ISNT JSON}");
+            }
+        });
+
+        final Boolean usernameExists = client.speakbinUserExists("achuinard");
+        assertNull(usernameExists);
     }
 }

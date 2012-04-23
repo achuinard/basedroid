@@ -43,19 +43,20 @@ public class BasedroidHttpClient {
      * This is an example API call.  Say I have an app - when a user registers you may want to check
      * if the username exists before sending the registration call through (because the registration
      * call will fail).  This fetches and parses the server-defined JSON object into a boolean value.
+     * @param username The username you want to check exists.
+     * @return true if it exists, false if it doesn't, null on server / deserialization error
      */
-    public boolean speakbinUserExists(final String username) {
+    public Boolean speakbinUserExists(final String username) {
         final String url = "http://www.speakbin.com/api/json/interaction/checkuser.sb";
         final Map<String, String> requestParams = new HashMap<String, String>();
         requestParams.put("username", username);
         try {
             final JSONObject jo = fetchJsonObject(url, requestParams, RequestType.GET);
             return Boolean.parseBoolean(jo.getString("bool"));
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (final Exception e) {
             Ln.w(e);
         }
-        return false;
+        return null;
     }
 
     public HttpClient getHttpClient() {

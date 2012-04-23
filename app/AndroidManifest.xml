@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="140"
-          android:versionName="1.4-SNAPSHOT" package="com.twansoftware.basedroid">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="140" android:versionName="1.4-SNAPSHOT" package="com.twansoftware.basedroid">
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
-    <application android:debuggable="true" android:icon="@drawable/icon" android:label="@string/app_name"
-                 android:theme="@style/Theme.Sherlock">
+    <application android:debuggable="true" android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/Theme.Sherlock">
         <activity android:label="@string/app_name" android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

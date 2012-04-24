@@ -11,7 +11,7 @@ import com.twansoftware.basedroid.activity.RoboSherlockScopedActivity;
 import com.twansoftware.basedroid.ui.examples.ListActivityExample;
 import roboguice.inject.InjectView;
 
-public class MainActivity extends RoboSherlockScopedActivity implements View.OnClickListener {
+public class MainActivity extends RoboSherlockActivity implements View.OnClickListener {
     @Inject
     private SharedPreferences sharedPreferences;
 

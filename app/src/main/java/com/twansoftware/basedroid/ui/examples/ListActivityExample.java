@@ -12,7 +12,7 @@ import com.twansoftware.basedroid.R;
 import com.twansoftware.basedroid.activity.RoboSherlockScopedListActivity;
 import com.twansoftware.basedroid.singleton.BasedroidHttpClient;
 
-public class ListActivityExample extends RoboSherlockScopedListActivity implements AdapterView.OnItemClickListener {
+public class ListActivityExample extends RoboSherlockListActivity implements AdapterView.OnItemClickListener {
 
     @Inject
     private SharedPreferences sharedPreferences;
@@ -31,8 +31,7 @@ public class ListActivityExample extends RoboSherlockScopedListActivity implemen
 
     @Override
     public void onItemClick(final AdapterView<?> adapterView, final View view, final int position, final long id) {
-        // This models an HTTP request along with a ProgressDialog.  Note that it is created outside of the thread
-        // for convenience but must be used inside runOnUiThread
+        // This models an HTTP request along with a ProgressDialog.
         final ProgressDialog show = ProgressDialog.show(this, "Dialog...", "Exampling...");
         new Thread(new Runnable() {
             @Override

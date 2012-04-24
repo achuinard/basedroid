@@ -36,8 +36,8 @@ Building from source
 
   To build Basedroid you will need:
 
-  * [Android SDK][http://developer.android.com/sdk/index.html]
-  * [Maven 3.0.4][http://maven.apache.org/download.html]
+  * [Android SDK](http://developer.android.com/sdk/index.html)
+  * [Maven 3.0.4](http://maven.apache.org/download.html)
 
   You can e-mail yourself an APK to test it out on your phone.
 

@@ -7,13 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockListActivity;
 import com.google.inject.Inject;
 import com.twansoftware.basedroid.R;
-import com.twansoftware.basedroid.activity.RoboSherlockScopedListActivity;
 import com.twansoftware.basedroid.singleton.BasedroidHttpClient;
 
 public class ListActivityExample extends RoboSherlockListActivity implements AdapterView.OnItemClickListener {
-
     @Inject
     private SharedPreferences sharedPreferences;
 

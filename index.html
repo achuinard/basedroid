@@ -38,19 +38,20 @@
         <article class="markdown-body">
           <h1>Basedroid: A Template for New Android Apps </h1>
 
-<p>Basedroid is a starting framework for new Android apps that servers to eliminate the boilerplate you find yourself writing in apps.</p>
+<p>Basedroid is a starting framework for new Android apps that serves to eliminate the boilerplate of new apps.</p>
 
-<p>It comes packed with several frameworks and features that make Android development much simpler:</p>
+<p>It comes packed with several frameworks and features that make Android development and packaging much simpler:</p>
 
 <ul>
 <li><p>roboguice, a dependency injection library, comes configured.  Examples include automatic injection of 
- SharedPreferences classes, UI elements, and more.</p></li>
-<li><p>Action Bar Sherlock comes packaged with Basedroid.</p></li>
-<li><p>A simple HTTP client with GET / POST requests of JSON. </p></li>
+ SharedPreferences classes, singletons, UI elements, and more.</p></li>
+<li><p>Action Bar Sherlock, which allows for a consistent look and feel throughout your app.</p></li>
+<li><p>A simple HTTP client with GET / POST requests. </p></li>
+<li><p>A StateManager singleton for saving state, wrapping around the Android SharedPreferences class.</pi></li>
 </ul><h2>Configuring Basedroid</h2>
 
 <p>You must have a PATH variable $ANDROID_HOME set to your Android SDK directory.<br>
-  Basedroid is built on API 14 but is compatible with as low as Android 2.2.</p>
+  Basedroid is built on API 15 but is compatible with as low as Android 2.2.</p>
 
 <pre><code>    $ export ANDROID_HOME=/my/sdk/path
     $ git clone git://github.com/achuinard/basedroid.git

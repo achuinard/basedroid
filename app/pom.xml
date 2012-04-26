@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!DOCTYPE project [
+        <!ELEMENT project (modelVersion|artifactId|packaging|name|url|parent|properties|dependencies|build|profiles)*>
+        <!ATTLIST project
+                xmlns CDATA #REQUIRED
+                xmlns:xsi CDATA #REQUIRED
+                xsi:schemaLocation CDATA #REQUIRED>
+        <!ELEMENT modelVersion (#PCDATA)>
+        <!ELEMENT artifactId (#PCDATA)>
+        <!ELEMENT packaging (#PCDATA)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT url (#PCDATA)>
+        <!ELEMENT parent (version|groupId|artifactId)*>
+        <!ELEMENT version (#PCDATA)>
+        <!ELEMENT groupId (#PCDATA)>
+        <!ELEMENT properties (abs.version|android.support.version)*>
+        <!ELEMENT abs.version (#PCDATA)>
+        <!ELEMENT android.support.version (#PCDATA)>
+        <!ELEMENT dependencies (dependency)*>
+        <!ELEMENT dependency (groupId|artifactId|scope|version|type)*>
+        <!ELEMENT scope (#PCDATA)>
+        <!ELEMENT type (#PCDATA)>
+        <!ELEMENT build (plugins)*>
+        <!ELEMENT plugins (plugin)*>
+        <!ELEMENT plugin (groupId|artifactId|version|configuration|executions|inherited)*>
+        <!ELEMENT configuration (source|target|description|override|includeAttached|removeExistingSignatures|archiveDirectory|keystore|alias|storepass|keypass|verbose|sign|zipalign|manifest)*>
+        <!ELEMENT source (#PCDATA)>
+        <!ELEMENT target (#PCDATA)>
+        <!ELEMENT profiles (profile)*>
+        <!ELEMENT profile (id|build|activation)*>
+        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT description (#PCDATA)>
+        <!ELEMENT override (#PCDATA)>
+        <!ELEMENT includeAttached (#PCDATA)>
+        <!ELEMENT executions (execution)*>
+        <!ELEMENT execution (goals|phase|id|inherited|configuration)*>
+        <!ELEMENT goals (goal)*>
+        <!ELEMENT goal (#PCDATA)>
+        <!ELEMENT phase (#PCDATA)>
+        <!ELEMENT activation (property)*>
+        <!ELEMENT property (name|value)*>
+        <!ELEMENT value (#PCDATA)>
+        <!ELEMENT inherited (#PCDATA)>
+        <!ELEMENT removeExistingSignatures (#PCDATA)>
+        <!ELEMENT archiveDirectory (#PCDATA)>
+        <!ELEMENT keystore (#PCDATA)>
+        <!ELEMENT alias (#PCDATA)>
+        <!ELEMENT storepass (#PCDATA)>
+        <!ELEMENT keypass (#PCDATA)>
+        <!ELEMENT verbose (#PCDATA)>
+        <!ELEMENT sign (debug)*>
+        <!ELEMENT debug (#PCDATA)>
+        <!ELEMENT zipalign (verbose|outputApk)*>
+        <!ELEMENT outputApk (#PCDATA)>
+        <!ELEMENT manifest (debuggable)*>
+        <!ELEMENT debuggable (#PCDATA)>
+        ]>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -17,6 +73,7 @@
 
     <properties>
         <abs.version>4.0.1</abs.version>
+        <android.support.version>r6</android.support.version>
     </properties>
     <dependencies>
         <dependency>

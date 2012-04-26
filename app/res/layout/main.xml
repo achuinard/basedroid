@@ -17,5 +17,11 @@
             android:layout_height="wrap_content"
             android:text="@string/main_action_bar_buttons_example_button_text"
             />
+    <Button
+            android:id="@+id/main_view_pager_example_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_view_pager_example_button_text"
+            />
 </LinearLayout>
 

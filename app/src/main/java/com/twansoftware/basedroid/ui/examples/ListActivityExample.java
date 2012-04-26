@@ -13,6 +13,8 @@ import com.twansoftware.basedroid.R;
 import com.twansoftware.basedroid.singleton.BasedroidHttpClient;
 
 public class ListActivityExample extends RoboSherlockListActivity implements AdapterView.OnItemClickListener {
+    private static final String[] EXAMPLE_STRINGS = {"Android", "iPhone", "Blackberry"};
+
     @Inject
     private SharedPreferences sharedPreferences;
 
@@ -24,7 +26,7 @@ public class ListActivityExample extends RoboSherlockListActivity implements Ada
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_activity_example);
         getSupportActionBar().setTitle("List Activity");
-        getListView().setAdapter(new ListActivityExampleListAdapter(this, android.R.layout.simple_list_item_1));
+        getListView().setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, EXAMPLE_STRINGS));
         getListView().setOnItemClickListener(this);
     }
 
@@ -42,18 +44,5 @@ public class ListActivityExample extends RoboSherlockListActivity implements Ada
                 show.dismiss();
             }
         }).start();
-    }
-
-    private static class ListActivityExampleListAdapter extends ArrayAdapter<String> {
-        private static final String[] EXAMPLE_STRINGS = {"Android", "iPhone", "Blackberry"};
-
-        public ListActivityExampleListAdapter(final Context context, final int textViewResourceId) {
-            super(context, textViewResourceId, EXAMPLE_STRINGS);
-        }
-
-        @Override
-        public String getItem(final int position) {
-            return EXAMPLE_STRINGS[position];
-        }
     }
 }

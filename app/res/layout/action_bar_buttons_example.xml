@@ -6,5 +6,5 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
-            android:text="@string/main_action_bar_buttons_example_text"/>
+            android:text="@string/action_bar_buttons_example_text"/>
 </LinearLayout>

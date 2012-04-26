@@ -13,5 +13,6 @@
         </activity>
         <activity android:name=".ui.examples.ListActivityExample"/>
         <activity android:name=".ui.examples.ActionBarButtonsExample"/>
+        <activity android:name=".ui.examples.ViewPagerExample"/>
     </application>
 </manifest>

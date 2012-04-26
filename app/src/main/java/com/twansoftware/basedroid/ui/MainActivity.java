@@ -10,6 +10,7 @@ import com.google.inject.Inject;
 import com.twansoftware.basedroid.R;
 import com.twansoftware.basedroid.ui.examples.ActionBarButtonsExample;
 import com.twansoftware.basedroid.ui.examples.ListActivityExample;
+import com.twansoftware.basedroid.ui.examples.ViewPagerExample;
 import roboguice.inject.InjectView;
 
 public class MainActivity extends RoboSherlockActivity implements View.OnClickListener {
@@ -21,6 +22,9 @@ public class MainActivity extends RoboSherlockActivity implements View.OnClickLi
     
     @InjectView(R.id.main_action_bar_buttons_example_button)
     private Button actionBarButtonsExampleButton;
+    
+    @InjectView(R.id.main_view_pager_example_button)
+    private Button viewPagerExampleButton;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class MainActivity extends RoboSherlockActivity implements View.OnClickLi
     private void bindButtons() {
         listViewExampleButton.setOnClickListener(this);
         actionBarButtonsExampleButton.setOnClickListener(this);
+        viewPagerExampleButton.setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +48,10 @@ public class MainActivity extends RoboSherlockActivity implements View.OnClickLi
                 break;
             case R.id.main_action_bar_buttons_example_button:
                 startActivity(new Intent(this, ActionBarButtonsExample.class));
+                break;
+            case R.id.main_view_pager_example_button:
+                startActivity(new Intent(this, ViewPagerExample.class));
+                break;
             default:
                 break;
         }

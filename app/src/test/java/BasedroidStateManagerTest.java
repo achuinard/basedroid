@@ -16,7 +16,7 @@ import static junit.framework.Assert.assertEquals;
  * 4/23/12
  */
 @RunWith(RobolectricRoboTestRunner.class)
-public class StateManagerTest {
+public class BasedroidStateManagerTest {
     protected Context context = new RoboActivity();
     protected BasedroidStateManager basedroidStateManager = RoboGuice.getInjector(context).getInstance(BasedroidStateManager.class);
     

@@ -1,6 +1,6 @@
 import android.content.Context;
 import com.twansoftware.basedroid.entity.SamplePojo;
-import com.twansoftware.basedroid.singleton.StateManager;
+import com.twansoftware.basedroid.singleton.BasedroidStateManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import roboguice.RoboGuice;
@@ -18,22 +18,22 @@ import static junit.framework.Assert.assertEquals;
 @RunWith(RobolectricRoboTestRunner.class)
 public class StateManagerTest {
     protected Context context = new RoboActivity();
-    protected StateManager stateManager = RoboGuice.getInjector(context).getInstance(StateManager.class);
+    protected BasedroidStateManager basedroidStateManager = RoboGuice.getInjector(context).getInstance(BasedroidStateManager.class);
     
     @Test
     public void testSaveAndLoadString() {
         final String key = "testSaveStringMethod()";
         final String value = UUID.randomUUID().toString();
-        stateManager.saveString(key, value);
-        assertEquals(value, stateManager.loadString(key));
+        basedroidStateManager.saveString(key, value);
+        assertEquals(value, basedroidStateManager.loadString(key));
     }
 
     @Test
     public void testSaveAndLoadInteger() {
         final String key = "testSaveIntegerMethod()";
         final Integer value = UUID.randomUUID().toString().hashCode();
-        stateManager.saveInteger(key, value);
-        assertEquals(value, stateManager.loadInteger(key));
+        basedroidStateManager.saveInteger(key, value);
+        assertEquals(value, basedroidStateManager.loadInteger(key));
     }
     
     @Test
@@ -42,8 +42,8 @@ public class StateManagerTest {
         final Integer intOne = 21;
         final SamplePojo samplePojo = new SamplePojo(stringOne, intOne);
         final String key = "testSaveAndLoadPojo()";
-        stateManager.saveObject(key, samplePojo);
-        final SamplePojo loaded = (SamplePojo) stateManager.loadObject(key, SamplePojo.class);
+        basedroidStateManager.saveObject(key, samplePojo);
+        final SamplePojo loaded = (SamplePojo) basedroidStateManager.loadObject(key, SamplePojo.class);
         assertEquals(samplePojo.getIntOne(), loaded.getIntOne());
     }
 }

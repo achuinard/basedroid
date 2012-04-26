@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Basedroid</string>
 
-
     <string name="main_list_view_example_button_text">ListView Example</string>
+    <string name="main_action_bar_buttons_example_text">Action Buttons Activity!</string>
+    <string name="main_action_bar_buttons_example_button_text">Action Buttons!</string>
 </resources>

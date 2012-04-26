@@ -13,7 +13,7 @@ import java.io.Serializable;
  * 4/5/12
  */
 @Singleton
-public class StateManager {
+public class BasedroidStateManager {
     private static final String DEFAULT_NULL_STRING = "";
     private static final int DEFAULT_NULL_INTEGER = -999;
     private static final Gson gson = new Gson();
@@ -21,8 +21,8 @@ public class StateManager {
     private SharedPreferences sharedPreferences;
 
     @Inject
-    public StateManager(final SharedPreferences sharedPreferences) {
-        Ln.d("Constructing StateManager...");
+    public BasedroidStateManager(final SharedPreferences sharedPreferences) {
+        Ln.d("Constructing BasedroidStateManager...");
         this.sharedPreferences = sharedPreferences;
     }
 

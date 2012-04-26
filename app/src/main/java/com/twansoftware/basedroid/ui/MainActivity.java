@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockActivity;
 import com.google.inject.Inject;
 import com.twansoftware.basedroid.R;
+import com.twansoftware.basedroid.ui.examples.ActionBarButtonsExample;
 import com.twansoftware.basedroid.ui.examples.ListActivityExample;
 import roboguice.inject.InjectView;
 
@@ -17,6 +18,9 @@ public class MainActivity extends RoboSherlockActivity implements View.OnClickLi
 
     @InjectView(R.id.main_list_view_example_button)
     private Button listViewExampleButton;
+    
+    @InjectView(R.id.main_action_bar_buttons_example_button)
+    private Button actionBarButtonsExampleButton;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -28,6 +32,7 @@ public class MainActivity extends RoboSherlockActivity implements View.OnClickLi
 
     private void bindButtons() {
         listViewExampleButton.setOnClickListener(this);
+        actionBarButtonsExampleButton.setOnClickListener(this);
     }
 
     @Override
@@ -36,6 +41,8 @@ public class MainActivity extends RoboSherlockActivity implements View.OnClickLi
             case R.id.main_list_view_example_button:
                 startActivity(new Intent(this, ListActivityExample.class));
                 break;
+            case R.id.main_action_bar_buttons_example_button:
+                startActivity(new Intent(this, ActionBarButtonsExample.class));
             default:
                 break;
         }

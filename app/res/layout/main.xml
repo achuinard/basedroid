@@ -3,13 +3,19 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
+              android:gravity="center"
         >
     <Button
             android:id="@+id/main_list_view_example_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="@string/main_list_view_example_button_text"
+            />
+    <Button
+            android:id="@+id/main_action_bar_buttons_example_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_action_bar_buttons_example_button_text"
             />
 </LinearLayout>
 

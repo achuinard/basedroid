@@ -1,4 +1,4 @@
-Basedroid: A Template for New Android Apps 
+Basedroid: A Base Template for Android Apps
 ======================
 
 Basedroid is a starting framework for new Android apps that serves to eliminate the boilerplate you find yourself writing in apps.

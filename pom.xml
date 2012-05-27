@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <version>1.4-SNAPSHOT</version>
+    <version>1.5-SNAPSHOT</version>
     <groupId>com.twansoftware</groupId>
     <artifactId>basedroid-parent</artifactId>
     <name>Basedroid parent</name>
@@ -46,15 +46,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <android.version>4.0.1.2</android.version>
         <android.proguard.jvmArguments>-Xms256m</android.proguard.jvmArguments>
-        <roboelectric.version>1.1</roboelectric.version>
     </properties>
     <build>
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>com.madgag</groupId>
+                    <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                     <artifactId>android-maven-plugin</artifactId>
-                    <version>3.1.1.99.0.6</version>
+                    <version>3.2.0</version>
                     <extensions>true</extensions>
                     <configuration>
                         <sdk>

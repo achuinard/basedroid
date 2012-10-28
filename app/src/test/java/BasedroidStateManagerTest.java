@@ -22,18 +22,16 @@ public class BasedroidStateManagerTest {
     
     @Test
     public void testSaveAndLoadString() {
-        final String key = "testSaveStringMethod()";
-        final String value = UUID.randomUUID().toString();
-        basedroidStateManager.saveString(key, value);
-        assertEquals(value, basedroidStateManager.loadString(key));
+        final UUID randomUuid = UUID.randomUUID();
+        basedroidStateManager.saveRandomUuid(randomUuid);
+        assertEquals(randomUuid, basedroidStateManager.getSavedRandomUuid());
     }
 
     @Test
     public void testSaveAndLoadInteger() {
-        final String key = "testSaveIntegerMethod()";
         final Integer value = UUID.randomUUID().toString().hashCode();
-        basedroidStateManager.saveInteger(key, value);
-        assertEquals(value, basedroidStateManager.loadInteger(key));
+        basedroidStateManager.saveStupidInteger(value);
+        assertEquals(value, basedroidStateManager.getSavedStupidInteger());
     }
     
     @Test
@@ -41,9 +39,8 @@ public class BasedroidStateManagerTest {
         final String stringOne = "Tony";
         final Integer intOne = 21;
         final SamplePojo samplePojo = new SamplePojo(stringOne, intOne);
-        final String key = "testSaveAndLoadPojo()";
-        basedroidStateManager.saveObject(key, samplePojo);
-        final SamplePojo loaded = (SamplePojo) basedroidStateManager.loadObject(key, SamplePojo.class);
-        assertEquals(samplePojo.getIntOne(), loaded.getIntOne());
+        basedroidStateManager.saveImportantPojo(samplePojo);
+        final SamplePojo loaded = basedroidStateManager.getSavedImportantPojo();
+        assertEquals(samplePojo, loaded);
     }
 }

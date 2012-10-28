@@ -4,9 +4,11 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.twansoftware.basedroid.entity.SamplePojo;
 import roboguice.util.Ln;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * Author: achuinard
@@ -26,61 +28,26 @@ public class BasedroidStateManager {
         this.sharedPreferences = sharedPreferences;
     }
 
-    /**
-     * Saves a key + String value pair to the app.
-     * @param key
-     * @param value
-     */
-    public void saveString(final String key, final String value) {
+    private void saveString(final String key, final String value) {
         setStringPreference(key, value);
     }
 
-    /**
-     * Loads a String value from the app based on the key.
-     * @param key Lookup key.
-     * @return Value associated with key, otherwise DEFAULT_NULL_STRING
-     */
-    public String loadString(final String key) {
+    private boolean setStringPreference(final String key, final String value) {
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, value);
+        return editor.commit();
+    }
+
+    private String loadString(final String key) {
         return sharedPreferences.getString(key, DEFAULT_NULL_STRING);
     }
 
-    /**
-     * Saves a key + Integer value pair to the app.
-     * @param key
-     * @param value
-     */
-    public void saveInteger(final String key, final Integer value) {
+    private void saveInteger(final String key, final Integer value) {
         setIntegerPreference(key, value);
     }
 
-    /**
-     * Loads an Integer value from the app based on the key.
-     * @param key Lookup key.
-     * @return Value associated with key, otherwise DEFAULT_NULL_INTEGER
-     */
-    public Integer loadInteger(final String key) {
+    private Integer loadInteger(final String key) {
         return sharedPreferences.getInt(key, DEFAULT_NULL_INTEGER);
-    }
-
-    /**
-     * Saves a serializable object.
-     * @param key The key which to save it under.
-     * @param object The object to save.
-     */
-    public void saveObject(final String key, final Serializable object) {
-        final String json = gson.toJson(object);
-        saveString(key, json);
-    }
-
-    /**
-     * Loads a previously saved object.
-     * @param key The key the object was saved under.
-     * @param clazz The type of object being loaded.
-     * @return The loaded object.
-     */
-    public Object loadObject(final String key, final Class clazz) {
-        final String json = loadString(key);
-        return gson.fromJson(json, clazz);
     }
 
     private boolean setIntegerPreference(final String key, final Integer value) {
@@ -89,9 +56,43 @@ public class BasedroidStateManager {
         return editor.commit();
     }
 
-    private boolean setStringPreference(final String key, final String value) {
-        final SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(key, value);
-        return editor.commit();
+    private void saveObject(final String key, final Serializable object) {
+        final String json = gson.toJson(object);
+        saveString(key, json);
+    }
+
+    private Object loadObject(final String key, final Class clazz) {
+        final String json = loadString(key);
+        return gson.fromJson(json, clazz);
+    }
+
+    private static final String RANDOM_UUID_KEY = "random_uuid";
+
+    public void saveRandomUuid(final UUID uuid) {
+        saveString(RANDOM_UUID_KEY, uuid.toString());
+    }
+
+    public UUID getSavedRandomUuid() {
+        return UUID.fromString(loadString(RANDOM_UUID_KEY));
+    }
+
+    private static final String INTEGER_KEY = "integer_key";
+
+    public void saveStupidInteger(final int toSave) {
+        setIntegerPreference(INTEGER_KEY, toSave);
+    }
+
+    public Integer getSavedStupidInteger() {
+        return loadInteger(INTEGER_KEY);
+    }
+
+    private static final String IMPORTANT_POJO_KEY = "important_pojo";
+
+    public void saveImportantPojo(final SamplePojo samplePojo) {
+        saveObject(IMPORTANT_POJO_KEY, samplePojo);
+    }
+
+    public SamplePojo getSavedImportantPojo() {
+        return (SamplePojo) loadObject(IMPORTANT_POJO_KEY, SamplePojo.class);
     }
 }

@@ -1,27 +1,32 @@
 Basedroid: A Base Template for Android Apps
 ======================
 
-Basedroid is a starting framework for new Android apps that serves to eliminate the boilerplate you find yourself writing in apps.
+Basedroid is a starting framework for new Android apps that helps you get all the boilerplate out of the way.
 
 It comes packed with several frameworks and features that make Android development much simpler:
 
-   * roboguice, a dependency injection library, comes configured.  Examples include automatic injection of 
-     state management classes, HTTP classes, UI elements, and more.
+   * Butterknife, a view injection library
 
-   * Action Bar Sherlock, an extension of the Android action bar
-     pattern which gives your app a consistent look and feel.
+   * An HTTP client with GET / POST requests and JSON parsing
 
-   * A singleton HTTP client with GET / POST requests of JSON. 
+   * A BasedroidStateManager that uses Gson to serialize and deserialize data for easy persistence
 
-   * A singleton StateManager that uses Gson to serialize and deserialize data.
+   * Maven, a build tool and dependency manager
 
-   * Several examples of unit testing with roboguice.  The HTTP client and state manager are tested and the tests are integrated into the Maven build process.
+Build Requirements
+------------
+   * [Android SDK](https://developer.android.com/sdk/index.html)
+
+   * [Maven 3.1.1](http://maven.apache.org/)
+
+   * [Maven Android SDK deployer](https://github.com/mosabua/maven-android-sdk-deployer)
+
 
 Configuring Basedroid
 ------------
 
-  You must have a PATH variable $ANDROID_HOME set to your Android SDK directory.  
-  Basedroid is built on API 16 but is compatible with as low as Android 2.2.
+  You must have an environment variable ANDROID_HOME set to your Android SDK directory.
+  Basedroid is built on API 19 (4.4 KitKat) but is compatible with as low as API 14 (4.0 ICS).
 
         export ANDROID_HOME=/my/sdk/path
         git clone git://github.com/achuinard/basedroid.git
@@ -29,20 +34,28 @@ Configuring Basedroid
 Building from source
 --------------------
 
-  On a Unix-like system you can build Basedroid from source using the following
-  command:
+  After cloning the Maven Android SDK deployer and running a `mvn clean install` there,
+  you can build Basedroid from source using the following command:
 
         mvn clean package
 
-  To build Basedroid you will need:
+  You can append `-Prelease` to the build command above to sign it with the keystore included.
+  Ideally you will create your own keystore as it will be easy to swap once created.
 
-  * [Android SDK](http://developer.android.com/sdk/index.html)
-  * [Maven 3.0.4](http://maven.apache.org/download.html)
+About
+--------------------
+
+I started Basedroid out of frustration with the old Android build system.  Since then, they've released a new Gradle-based system,
+but I still prefer to use Maven.  Basedroid contained libraries such as Roboguice and ActionBarSherlock at one point,
+but those have been removed in favor of Butterknife and setting the min API to 14 (which is >85% of Android devices at this point).
+
+I intend to expand upon this project with a ViewPager example, some fragments, etc, but this is good enough to get going since I
+delete the example activities anyway when I fork it for a new app.
 
 
 More info
 ---------
 
-  * Tony Chuinard:
+  * Twan Software (Tony Chuinard)
 
-    <http://chuinard.com>
+    <http://twansoftware.com>

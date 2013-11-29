@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_bar_buttons_save"
+          android:icon="@android:drawable/ic_menu_save"
+          android:title="@string/save"
+          android:showAsAction="ifRoom|withText"/>
+    <item android:id="@+id/action_bar_buttons_settings"
+          android:icon="@android:drawable/ic_menu_preferences"
+          android:title="@string/settings"
+          android:showAsAction="ifRoom|withText"/>
+</menu>
